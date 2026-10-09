@@ -1,0 +1,37 @@
+import java.util.Scanner;
+
+public class Assignment4Scanner {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter your height (in cm): ");
+        double height = sc.nextInt();
+
+        System.out.print("Enter your age: ");
+        int age = sc.nextInt();
+
+            System.out.println("Enter citizenship code (C for Endor, N for Non-citizen): ");
+            String citizenshipCode = sc.next();
+
+        {
+            System.out.println("Is a recommendee of Master Obi Wan? (R for Recommendee, N for Non-recommendee): ");
+            String recommendeeCode = sc.next();
+
+            {
+
+                System.out.println();
+
+                if (recommendeeCode.equalsIgnoreCase("R")) {
+                    System.out.println("Status: ACCEPTED (Automatic Master Obi-Wan Recommendation)");
+                } else if (height >= 200 && (age >= 21 && age <= 25) && citizenshipCode.equalsIgnoreCase("C")) {
+                    System.out.println("Status: ACCEPTED (Meets criteria)");
+                } else {
+                    System.out.println("Status: REJECTED (Does not meet criteria)");
+
+                    sc.close();
+                }
+
+            }
+        }
+    }
+}
