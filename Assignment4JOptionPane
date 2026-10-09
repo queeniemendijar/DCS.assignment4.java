@@ -1,0 +1,41 @@
+import javax.swing.JOptionPane;
+
+public class Assignment4JOptionPane {
+    public static void main(String[] args) {
+
+        JOptionPane.showMessageDialog(
+                null,
+                "Welcome to Jedi Knight Military Academy!",
+                "Message",
+                JOptionPane.INFORMATION_MESSAGE
+        );
+
+        String recommendeeCode = JOptionPane.showInputDialog(null,
+                "Enter recommendee code ('R' for recommendee, 'N' for non-recommendee):");
+
+        if (recommendeeCode != null && recommendeeCode.equalsIgnoreCase("R")) {
+            JOptionPane.showMessageDialog(null, "Result: ACCEPTED (Automatic recommendation by Jedi Master Obi Wan)");
+            return;
+        }
+
+        String heightInput = JOptionPane.showInputDialog(null, "Enter height in cm:");
+        double height = Double.parseDouble(heightInput);
+
+        String ageInput = JOptionPane.showInputDialog(null, "Enter age:");
+        int age = Integer.parseInt(ageInput);
+
+        String citizenCode = JOptionPane.showInputDialog(null,
+                "Enter citizenship code ('C' for citizen of Endor, 'N' for non-citizen):");
+
+        boolean isTallEnough = height >= 200;
+        boolean isCorrectAge = age >= 21 && age <= 25;
+        boolean isCitizen = citizenCode != null && citizenCode.equalsIgnoreCase("C");
+
+
+        if (isTallEnough && isCorrectAge && isCitizen) {
+            JOptionPane.showMessageDialog(null, "Result: ACCEPTED");
+        } else {
+            JOptionPane.showMessageDialog(null, "Result: REJECTED");
+        }
+    }
+}
