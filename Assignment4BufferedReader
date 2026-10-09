@@ -1,0 +1,45 @@
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.io.IOException;
+
+public class Assignment4BufferedReader {
+    public static void main(String[] args) {
+
+        BufferedReader dataIn = new BufferedReader(new InputStreamReader(System.in));
+
+        int height = 0;
+        int age = 0;
+        String citizenshipCode = "";
+        String recommendeeCode = "";
+
+        try {
+
+            System.out.print("Enter your height (in cm): ");
+            height = Integer.parseInt(dataIn.readLine());
+
+            System.out.print("Enter your age: ");
+            age = Integer.parseInt(dataIn.readLine());
+
+            System.out.print("Enter citizenship code (C for Endor, N for Non-citizen): ");
+            citizenshipCode = dataIn.readLine();
+
+            System.out.print("Is a recommendee of Master Obi Wan? (R for Recommendee, N for Non-recommendee): ");
+            recommendeeCode = dataIn.readLine();
+
+            System.out.println();
+
+            if (recommendeeCode.equalsIgnoreCase("R")) {
+                System.out.println("Status: ACCEPTED (Automatic Master Obi-Wan Recommendation)");
+            } else if (height >= 200 && (age >= 21 && age <= 25) && citizenshipCode.equalsIgnoreCase("C")) {
+                System.out.println("Status: ACCEPTED (Meets criteria)");
+            } else {
+                System.out.println("Status: REJECTED (Does not meet criteria)");
+            }
+
+        } catch (IOException e) {
+            System.out.println("Error in getting input from the keyboard.");
+        } catch (NumberFormatException e) {
+            System.out.println("Invalid number format! Height and Age must be digits only.");
+        }
+    }
+}
